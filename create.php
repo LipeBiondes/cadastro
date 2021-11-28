@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
 
-        if (!empty($_POST['senha2'])) {
-            $senha = $_POST['senha2'];
+        if (!empty($_POST['confirmar_senha'])) {
+            $senha = $_POST['confirmar_senha'];
         } else {
             $senha2Erro = 'Por favor digite uma senha(2) válida!';
             $validacao = false;
@@ -90,18 +90,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ";
             $q = $mysql->prepare($sql);
             $q->execute(array($nome, $sexo, $data_nascimento,$email,md5($senha)));
-
         } catch (PDOException $Exception) {
             $sexoErro = 'Erro no cadastro 1!';
         }
         //
-        MySQL::desconectar();        
+        MySQL::desconectar();
         echo '<script type="text/JavaScript">
         redirectTime = "1000";
         redirectURL = "index.php";
         function timedRedirect() {
             setTimeout("location.href = redirectURL;",redirectTime);
-            alert("deu certo");
+            alert("Cadastro realizado com sucesso, será redirecionado para tela de login");
         }
         timedRedirect();
         </script>';
@@ -129,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               alert ("A senha deve conter entre 2 a 20 caracteres.");
               return false;
           }
-        if (nomeform.senha != nomeform.confirmar_senha) //verifica se as senhas são iguais
+        if (nomeform.senha.value != nomeform.confirmar_senha.value) //verifica se as senhas são iguais
           {
             alert ("Senhas não coincidem!");
             return false;
