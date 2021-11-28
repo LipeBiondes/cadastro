@@ -50,7 +50,7 @@ if(isset($_POST['email']) && isset($_POST['senha']))
         $q->execute(array($email));
         $data = $q->fetch(PDO::FETCH_ASSOC);
 
-        print_r($data);
+         
         $senha_digitada = md5($senha);
         $senha_do_banco = @$data['senha'];
         if($senha_digitada == $senha_do_banco)
