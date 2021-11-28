@@ -7,7 +7,6 @@ require 'mysql.php';
 
 if(isset($_POST['email']) && isset($_POST['senha']))
 { 
-    echo "oi";
     $mysql = MySQL::conectar();
     $validacao = true;
     $erro = '';
