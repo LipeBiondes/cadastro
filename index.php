@@ -68,8 +68,6 @@ if(isset($_POST['email']) && isset($_POST['senha']))
         }
          
     }
- echo $erro_senha ;
- echo $erro ;
 }
 ?>
 
