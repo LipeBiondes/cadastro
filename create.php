@@ -124,12 +124,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script language="javascript">
       function valida_dados (nomeform)
      {
-        if (nomeform.senha.value.length<8 || nomeform.senha.value.length>20)//verifica o comprimento da string
+        if (nomeform.senha.value.length<2 || nomeform.senha.value.length>20)//verifica o comprimento da string
           {
-              alert ("A senha deve conter entre 8 e 2 caracteres.");
+              alert ("A senha deve conter entre 2 a 20 caracteres.");
               return false;
           }
-        if (nomeform.senha = nomeform.confirmar_senha) //verifica se as senhas são iguais
+        if (nomeform.senha != nomeform.confirmar_senha) //verifica se as senhas são iguais
           {
             alert ("Senhas não coincidem!");
             return false;
